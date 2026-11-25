@@ -1,0 +1,17 @@
+# Build outputs
+**/bin/
+**/obj/
+*.obj
+*.ilk
+*.pdb
+*.tlog
+*.log
+.vs/
+
+# Local OpenCode state (do not publish personal config or installed copy)
+opencode.jsonc
+.opencode/
+
+# OS files
+.DS_Store
+Thumbs.db

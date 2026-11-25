@@ -1,0 +1,19 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugins": [
+    "-opencode.tts",
+    {
+      "package": "./.opencode/plugins/tts",
+      "options": {
+        "enabled": true,
+        "exe": "release\\tts.exe",
+        "voice": "Zira",
+        "rate": 1,
+        "volume": 100,
+        "maxChars": 1200,
+        "mode": "interrupt",
+        "debug": false
+      }
+    }
+  ]
+}
