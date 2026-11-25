@@ -10,7 +10,12 @@
 
 # Local OpenCode state (do not publish personal config or installed copy)
 opencode.jsonc
-.opencode/
+.opencode/*
+!.opencode/plugins/
+.opencode/plugins/*
+!.opencode/plugins/tts/
+.opencode/plugins/tts/*
+!.opencode/plugins/tts/index.ts
 
 # OS files
 .DS_Store
