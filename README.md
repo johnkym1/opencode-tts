@@ -1,11 +1,45 @@
 # OpenCode TTS
 
+[![Works with OpenCode](https://opencode.ai/brand/badges/opencode-works-with-a-light-20.svg)](https://opencode.ai)
+
 Text-to-speech for [OpenCode](https://opencode.ai) replies on Windows.
 
 A small C++ helper uses Windows SAPI voices, and a local OpenCode plugin speaks
 the final assistant reply after each turn. It listens for
 `session.execution.succeeded`, cleans Markdown from the reply, and speaks the
 most recent assistant message that contains text.
+
+## Install as an OpenCode plugin
+
+The repo includes a local plugin at `release/plugin/index.ts` and a portable
+config template at `release/config.snippet.jsonc`. After copying `release` into
+your project, the config should contain:
+
+```jsonc
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugins": [
+    "-opencode.tts",
+    {
+      "package": "./.opencode/plugins/tts",
+      "options": {
+        "enabled": true,
+        "exe": "release\\tts.exe",
+        "voice": "Zira",
+        "rate": 1,
+        "volume": 100,
+        "maxChars": 1200,
+        "mode": "interrupt",
+        "debug": false
+      }
+    }
+  ]
+}
+```
+
+Run `.\release\install.ps1` from the project root to install the plugin and write
+this config for you, then reload OpenCode with
+`opencode api post /api/location/reload`.
 
 ## Quick start
 
